@@ -41,13 +41,29 @@ img{display:block;max-width:100%;}
 .nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--grau-200);}
 .nav__inner{display:flex;align-items:center;justify-content:space-between;
-  padding:12px 32px;max-width:var(--max);margin:0 auto;gap:24px;}
-.nav__logo{width:118px;flex:0 0 auto;}
-.nav__links{display:flex;gap:24px;flex-wrap:wrap;}
+  padding:12px 20px;max-width:var(--max);margin:0 auto;gap:16px;}
+.nav__logo{width:104px;flex:0 0 auto;}
+.nav__links{display:flex;gap:22px;flex-wrap:wrap;}
 .nav__links a{font-family:var(--kopf);font-size:13.5px;font-weight:500;text-decoration:none;
-  color:var(--navy);}
+  color:var(--navy);white-space:nowrap;}
 .nav__links a:hover{color:var(--violett);}
-@media (max-width:960px){.nav__links{display:none;}}
+.nav__burger{display:none;flex:0 0 auto;width:36px;height:36px;border:none;background:none;
+  cursor:pointer;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.nav__burger span{display:block;width:22px;height:2px;background:var(--navy);
+  border-radius:2px;transition:transform .2s,opacity .2s;}
+.nav__burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.nav__burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+.nav__mobile{display:none;flex-direction:column;gap:2px;padding:8px 20px 20px;
+  border-top:1px solid var(--grau-200);background:#fff;}
+.nav__mobile a{font-family:var(--kopf);font-size:15px;font-weight:500;color:var(--navy);
+  text-decoration:none;padding:12px 4px;border-bottom:1px solid var(--grau-100);}
+.nav__mobile .btn{margin-top:14px;justify-content:center;}
+.nav__mobile.offen{display:flex;}
+@media (max-width:960px){
+  .nav__links,.nav__cta-desktop{display:none;}
+  .nav__burger{display:flex;}
+}
 
 /* Hero: grossflaechiges echtes Foto als Buehne */
 .hero{position:relative;min-height:520px;display:flex;align-items:flex-end;
@@ -266,7 +282,27 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
   .reveal.sichtbar{opacity:1;transform:none;}
 }
-@media (max-width:640px){.hero h1{font-size:34px;} .abschluss{padding:34px;}}
+@media (max-width:640px){
+  .wrap{padding:0 20px;}
+  section{padding:56px 0;}
+  .hero__inner{padding:44px 20px 40px;}
+  .hero h1{font-size:30px;}
+  .hero__sub{font-size:15px;}
+  .section-kopf h2{font-size:24px;}
+  .weg__stufe h3{font-size:19px;}
+  .abschluss{padding:28px;}
+  .abschluss h2{font-size:23px;}
+  .wegweiser{padding:24px 20px;}
+  .cs-block__siegel{max-width:100%;}
+  .modulkarte summary{padding:16px 40px 16px 16px;}
+  .modulkarte__body{padding:0 16px 16px;}
+}
+@media (max-width:480px){
+  .team{grid-template-columns:1fr;}
+  .hero-fakten__grid{grid-template-columns:1fr;}
+  .modul-ctas .btn,.hero__ctas .btn,.abschluss__ctas .btn{width:100%;text-align:center;
+    justify-content:center;}
+}
 </style>
 </head>
 <body>
@@ -286,8 +322,21 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
       <a href="#trainerpool">F&uuml;r das ISH t&auml;tig werden</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a href="#fuerwen" class="btn btn--primary btn--klein">Weiterbildungswegweiser</a>
+    <a href="#fuerwen" class="btn btn--primary btn--klein nav__cta-desktop">Weiterbildungswegweiser</a>
+    <button class="nav__burger" id="navBurger" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <nav class="nav__mobile" id="navMobile">
+    <a href="#fuerwen">F&uuml;r wen</a>
+    <a href="#weg">Der Weg</a>
+    <a href="#module">Module</a>
+    <a href="#warum">Warum ISH</a>
+    <a href="#team">Team</a>
+    <a href="#trainerpool">F&uuml;r das ISH t&auml;tig werden</a>
+    <a href="#faq">FAQ</a>
+    <a href="#fuerwen" class="btn btn--primary">Weiterbildungswegweiser</a>
+  </nav>
 </header>
 
 <section class="hero" id="top">
@@ -1031,6 +1080,21 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
 </footer>
 
 <script>
+try {
+  var burger = document.getElementById('navBurger');
+  var mobileNav = document.getElementById('navMobile');
+  burger.addEventListener('click', function() {
+    var offen = mobileNav.classList.toggle('offen');
+    burger.setAttribute('aria-expanded', offen ? 'true' : 'false');
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      mobileNav.classList.remove('offen');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+} catch (e) {}
+
 try {
   var els = document.querySelectorAll('.reveal');
   var io = new IntersectionObserver(function(entries) {
