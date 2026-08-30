@@ -156,7 +156,7 @@ section{padding:84px 0;}
 .modulkarte{background:#fff;border:1px solid var(--grau-200);border-radius:14px;
   margin-bottom:10px;}
 .modulkarte summary{padding:18px 44px 18px 20px;display:flex;align-items:center;gap:16px;
-  flex-wrap:wrap;cursor:pointer;list-style:none;position:relative;min-height:74px;}
+  flex-wrap:wrap;cursor:pointer;list-style:none;position:relative;min-height:96px;}
 .modulkarte summary::-webkit-details-marker{display:none;}
 .modulkarte summary::after{content:'+';position:absolute;right:18px;top:50%;
   transform:translateY(-50%);font-size:20px;color:var(--violett);}
@@ -164,7 +164,7 @@ section{padding:84px 0;}
 .modulkarte__haupt{flex:1 1 220px;}
 .modulkarte h5{font-size:15px;font-family:var(--kopf);font-weight:700;margin-bottom:4px;
   min-height:39px;display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
-.modulkarte__meta{font-size:11.5px;color:var(--grau-400);}
+.modulkarte__meta{font-size:11.5px;color:var(--grau-400);min-height:28px;display:block;}
 .modulkarte__termin{font-size:12.5px;color:var(--navy);font-weight:600;margin-top:4px;}
 .modulkarte__preis{text-align:right;flex:0 0 auto;}
 .modulkarte__preis strong{display:block;font-family:var(--kopf);font-weight:800;font-size:17px;}
@@ -188,6 +188,7 @@ section{padding:84px 0;}
 .tag--optional{background:var(--grau-100);color:var(--grau-600);}
 .tag--neu{background:var(--violett-nebel);color:var(--violett);}
 @media (max-width:860px){.module-spalten{grid-template-columns:1fr;}}
+.modul-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:36px;}
 
 /* Warum ISH: grosses Foto */
 .praxis{display:grid;grid-template-columns:1.15fr 1fr;gap:52px;align-items:center;}
@@ -606,7 +607,7 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
       </div>
       <div class="modul-gruppe reveal">
         <h4>Aufbaukurs</h4>
-        <p class="modulgruppe-label">Kernmodule</p>
+        
         <details class="modulkarte">
           <summary>
             <div class="modulkarte__haupt">
@@ -690,6 +691,26 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
         <details class="modulkarte">
           <summary>
             <div class="modulkarte__haupt">
+              <h5>Systemische Rhetorik<span class="tag tag--neu">Neu</span><span class="tag tag--optional">Optional</span></h5>
+              <div class="modulkarte__meta">20 LE &middot; 2 Tage</div>
+              <div class="modulkarte__termin">Termin folgt</div>
+            </div>
+            <div class="modulkarte__preis"><strong>600&nbsp;&euro;</strong><span></span></div>
+          </summary>
+          <div class="modulkarte__body">
+            <div class="modulkarte__block">
+              <h6>Inhalte</h6>
+              <p>Sie besch&auml;ftigen sich mit dem Metamodell der Sprache, Tilgung, Generalisierung und Verzerrung erkennen und transformieren, und gestalten Sprache in Konferenzen, Elternabenden und SCHILFs so, dass sie keinen destruktiven Widerstand erzeugt.</p>
+            </div>
+            <div class="modulkarte__block">
+              <h6>Kompetenzen</h6>
+              <p>Sie f&uuml;hren Konferenzen, Elternabende und Kollegiumsfortbildungen sprachlich so, dass Ihre Botschaften ankommen, ohne unn&ouml;tigen Widerstand auszul&ouml;sen.</p>
+            </div>
+          </div>
+        </details>
+        <details class="modulkarte">
+          <summary>
+            <div class="modulkarte__haupt">
               <h5>Systemische P&auml;dagogik<span class="tag tag--neu">Neu</span></h5>
               <div class="modulkarte__meta">20 LE &middot; 2 Tage</div>
               <div class="modulkarte__termin">Termin folgt</div>
@@ -728,6 +749,11 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
           </div>
         </details>
       </div>
+    </div>
+    <div class="modul-ctas">
+      <a href="#anmelden" class="btn btn--ghost">Grundkurs buchen</a>
+      <a href="#anmelden" class="btn btn--ghost">Aufbaukurs buchen</a>
+      <a href="#anmelden" class="btn btn--primary">Grund- und Aufbaukurs buchen</a>
     </div>
   </div>
 </section>
