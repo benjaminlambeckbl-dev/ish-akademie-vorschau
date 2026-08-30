@@ -168,10 +168,12 @@ section{padding:84px 0;}
   text-transform:uppercase;letter-spacing:.06em;color:var(--violett);
   margin:18px 0 8px;}
 .modulgruppe-label:first-child{margin-top:0;}
+.zusatzmodule-block{margin-top:32px;padding-top:28px;border-top:1px solid var(--grau-200);}
 .zusatzmodule-hinweis{font-size:12px;color:var(--grau-400);line-height:1.5;
-  margin:0 0 10px;}
-.zusatzmodule-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  max-width:70ch;margin:0 0 14px;}
+.zusatzmodule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
 .zusatzmodule-grid .modulkarte{margin-bottom:0;}
+@media (max-width:960px){.zusatzmodule-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:640px){.zusatzmodule-grid{grid-template-columns:1fr;}}
 
 .modulkarte{background:#fff;border:1px solid var(--grau-200);border-radius:14px;
@@ -742,13 +744,16 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
             </div>
           </div>
         </details>
-        <p class="modulgruppe-label">Zusatzwahlmodule</p>
-        <p class="zusatzmodule-hinweis">Diese Module geh&ouml;ren nicht zum
-          Aufbaukurs, k&ouml;nnen aber zus&auml;tzlich angefragt werden. Es
-          stehen daf&uuml;r noch keine festen Termine fest. Die Kurse werden
-          terminiert, sobald sich genug Interessierte gefunden haben.</p>
-        <div class="zusatzmodule-grid">
-          
+      </div>
+    </div>
+    <div class="zusatzmodule-block reveal">
+      <p class="modulgruppe-label">Zusatzwahlmodule</p>
+      <p class="zusatzmodule-hinweis">Diese Module geh&ouml;ren nicht zum
+        Aufbaukurs, k&ouml;nnen aber zus&auml;tzlich angefragt werden. Es
+        stehen daf&uuml;r noch keine festen Termine fest. Die Kurse werden
+        terminiert, sobald sich genug Interessierte gefunden haben.</p>
+      <div class="zusatzmodule-grid">
+        
         <details class="modulkarte">
           <summary>
             <div class="modulkarte__haupt">
@@ -829,7 +834,6 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
             </div>
           </div>
         </details>
-        </div>
       </div>
     </div>
     <div class="modul-ctas">
