@@ -168,6 +168,11 @@ section{padding:84px 0;}
   text-transform:uppercase;letter-spacing:.06em;color:var(--violett);
   margin:18px 0 8px;}
 .modulgruppe-label:first-child{margin-top:0;}
+.zusatzmodule-hinweis{font-size:12px;color:var(--grau-400);line-height:1.5;
+  margin:0 0 10px;}
+.zusatzmodule-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.zusatzmodule-grid .modulkarte{margin-bottom:0;}
+@media (max-width:640px){.zusatzmodule-grid{grid-template-columns:1fr;}}
 
 .modulkarte{background:#fff;border:1px solid var(--grau-200);border-radius:14px;
   margin-bottom:10px;}
@@ -736,7 +741,14 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
               <p>Sie positionieren sich am Markt f&uuml;r Schulen und Bildungseinrichtungen klar erkennbar.</p>
             </div>
           </div>
-        </details><p class="modulgruppe-label">Zusatzwahlmodule</p>
+        </details>
+        <p class="modulgruppe-label">Zusatzwahlmodule</p>
+        <p class="zusatzmodule-hinweis">Diese Module geh&ouml;ren nicht zum
+          Aufbaukurs, k&ouml;nnen aber zus&auml;tzlich angefragt werden. Es
+          stehen daf&uuml;r noch keine festen Termine fest. Die Kurse werden
+          terminiert, sobald sich genug Interessierte gefunden haben.</p>
+        <div class="zusatzmodule-grid">
+          
         <details class="modulkarte">
           <summary>
             <div class="modulkarte__haupt">
@@ -760,7 +772,7 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
         <details class="modulkarte">
           <summary>
             <div class="modulkarte__haupt">
-              <h5>Systemische P&auml;dagogik<span class="tag tag--neu">Neu</span></h5>
+              <h5>Systemische P&auml;dagogik<span class="tag tag--neu">Neu</span><span class="tag tag--optional">Optional</span></h5>
               <div class="modulkarte__meta">20 LE &middot; 2 Tage</div>
               <div class="modulkarte__termin">Termin folgt</div>
             </div>
@@ -797,6 +809,27 @@ footer.site{border-top:1px solid var(--grau-200);padding:36px 0;}
             </div>
           </div>
         </details>
+        <details class="modulkarte">
+          <summary>
+            <div class="modulkarte__haupt">
+              <h5>Systemische Didaktik<span class="tag tag--neu">Neu</span><span class="tag tag--optional">Optional</span></h5>
+              <div class="modulkarte__meta">20 LE &middot; 2 Tage</div>
+              <div class="modulkarte__termin">Termin folgt</div>
+            </div>
+            <div class="modulkarte__preis"><strong>600&nbsp;&euro;</strong><span></span></div>
+          </summary>
+          <div class="modulkarte__body">
+            <div class="modulkarte__block">
+              <h6>Inhalte</h6>
+              <p>Sie besch&auml;ftigen sich mit Kooperativem Lernen als systemisch-konstruktivistischer Methode, mit dem kooperativen Dreischritt aus Einzelarbeit, arbeitsgleichem und arbeitsteiligem Austausch, und mit der Dramaturgie eines ganzen Fortbildungstages.</p>
+            </div>
+            <div class="modulkarte__block">
+              <h6>Kompetenzen</h6>
+              <p>Sie gestalten Fortbildungstage und Kollegiumsfortbildungen so, dass Wissen durch echten Austausch unterschiedlicher Perspektiven entsteht, und &uuml;bertragen diese Haltung auf den eigenen Unterricht.</p>
+            </div>
+          </div>
+        </details>
+        </div>
       </div>
     </div>
     <div class="modul-ctas">
